@@ -13,6 +13,7 @@ const Container: React.FC = (props) => {
   const [dataList, setDataList] = useState<listItemTypes[]>([]);
   const [visible, setVisible] = useState<boolean>(false);
   const [title, setTitle] = useState<string>('');
+  const [fileName, setFileName] = useState<string>('');
 
   const columns = [
     {
@@ -24,6 +25,11 @@ const Container: React.FC = (props) => {
       title: '卡片标题',
       dataIndex: 'title',
       key: 'title',
+    },
+    {
+      title: '文件名称',
+      dataIndex: 'fileName',
+      key: 'fileName',
     },
     {
       title: '创建时间',
@@ -137,6 +143,8 @@ const Container: React.FC = (props) => {
   const initDataList = async () => {
     const res = await getChartList({
       email: localStorage.getItem('username') || '',
+      page: 1,
+      perPage: 10,
     });
     if (res.status === 200 && res.data.length) {
       let result = res.data;
@@ -160,6 +168,7 @@ const Container: React.FC = (props) => {
     const username = localStorage.getItem('username') || '';
     const res = await addChart({
       title: title,
+      fileName: fileName,
       email: email,
       userName: username,
       chartData: '',
@@ -175,6 +184,9 @@ const Container: React.FC = (props) => {
 
   const handleOnChange = (v) => {
     setTitle(v.target.value);
+  };
+  const handleOnFileChange = (v) => {
+    setFileName(v.target.value);
   };
 
   return (
@@ -204,6 +216,9 @@ const Container: React.FC = (props) => {
       >
         <div className="modelTitle">卡片标题:</div>
         <Input className="modelInput" onChange={handleOnChange} />
+        <br />
+        <div className="modelTitle">文件名称:</div>
+        <Input className="modelInput" onChange={handleOnFileChange} />
       </Modal>
     </div>
   );

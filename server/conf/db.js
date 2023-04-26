@@ -3,7 +3,7 @@ const { isProd } = require('../utils/env');
 let MYSQL_CONF = {
   host: 'localhost',
   user: 'root',
-  password: '12345678',
+  password: 'pppp0000',
   port: '3306',
   database: 'ugp',
 };
@@ -13,7 +13,7 @@ if (isProd) {
   MYSQL_CONF = {
     host: 'localhost',
     user: 'root',
-    password: '12345678',
+    password: 'pppp0000',
     port: '3306',
     database: 'ugp',
   };

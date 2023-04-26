@@ -4,4 +4,5 @@ export interface listItemTypes {
   createdAt: string;
   updatedAt: string;
   chartStatus: string;
+  fileName: string;
 }

@@ -2,6 +2,7 @@ export interface chartDataTypes {
   id?: number;
   email: string;
   title?: string;
+  fileName?: string;
   userName: string;
   chartData: string;
   chartStatus: '1' | '2'; // 1 是保存  2是发布
@@ -15,4 +16,6 @@ export interface onlyIdObjType {
 
 export interface onlyEmailObjType {
   email: string;
+  page: number;
+  perPage: number;
 }

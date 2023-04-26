@@ -7,6 +7,7 @@ const seq = require('../seq');
  * email // 邮箱
  * userName // 用户名
  * title // 卡片标题
+ * fileName // 文件名称
  * chartData // 存的 JSON.stringify() 之后的对象字符串
  * chartStatus // 1是仅保存， 2是发布  发布状态才可以访问
  */
@@ -21,6 +22,10 @@ const Chart = seq.define('chart', {
     allowNull: true,
   },
   title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  fileName: {
     type: Sequelize.STRING,
     allowNull: false,
   },
